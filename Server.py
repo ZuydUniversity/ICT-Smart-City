@@ -22,7 +22,7 @@ conf={
 	},
 	'pl':{
 		'type':	'serial_seed',
-		'port':	'/dev/ttyUSB0'
+		'port':	'/dev/ttyS0'
 	}
 }
 ll=pyrfm.getLL(conf)
@@ -47,5 +47,6 @@ if ll.setOpModeSleep(True,True):
 			#print('header: ',header)
 			#print('message:',array.array('B', msg).tostring())
 			ll.sendStr('Got your message!')
-            setText(array.array('B', msg).tostring())
+			message = str(array.array('B', msg).tostring())
+			setText(message)
 			setRGB(0,255,0)
