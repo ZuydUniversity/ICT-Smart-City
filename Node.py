@@ -22,7 +22,7 @@ conf={
 	},
 	'pl':{
 		'type':	'serial_seed',
-		'port':	'/dev/ttyUSB0'
+		'port':	'/dev/ttyS0'
 	}
 }
 ll=pyrfm.getLL(conf)
