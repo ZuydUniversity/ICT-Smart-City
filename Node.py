@@ -9,6 +9,7 @@ import array
 import grovepi
 
 ultrasonic = 4
+grovepi.set_bus("RPI_1")
 
 sys.path.append(
 	os.path.join(
