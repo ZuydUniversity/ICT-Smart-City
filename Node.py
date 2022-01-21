@@ -6,6 +6,9 @@ import sys
 import os
 import time
 import array
+import grovepi
+
+ultrasonic = 4
 
 sys.path.append(
 	os.path.join(
@@ -37,7 +40,7 @@ if ll.setOpModeSleep(True,True):
 	ll.setTxPower(13)
 	
 	while True:
-		ll.sendStr('Hello world!')
+		ll.sendStr(str(grovepi.ultrasonicRead(ultrasonic)))
 		ll.waitPacketSent()
 		
 		if ll.waitRX(timeout=3):

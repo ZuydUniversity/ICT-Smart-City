@@ -6,6 +6,10 @@ import sys
 import os
 import array
 from grove_rgb_lcd import *
+import grovepi
+
+buzzer = 8
+grovepi.pinMode(buzzer,"OUTPUT")
 
 sys.path.append(
 	os.path.join(
@@ -47,6 +51,11 @@ if ll.setOpModeSleep(True,True):
 			#print('header: ',header)
 			#print('message:',array.array('B', msg).tostring())
 			ll.sendStr('Got your message!')
-			message = str(array.array('B', msg).tostring())
-			setText(message)
-			setRGB(0,255,0)
+			message = int(array.array('B', msg).tostring())
+			setText(str(message))
+			if message < 6:
+				setRGB(255,0,0)
+				grovepi.digitalWrite(buzzer,1)
+			else:
+				setRGB(0,255,0)
+				grovepi.digitalWrite(buzzer,0)
