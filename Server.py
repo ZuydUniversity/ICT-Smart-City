@@ -9,6 +9,7 @@ from grove_rgb_lcd import *
 import grovepi
 
 buzzer = 8
+#Set pinmode.
 grovepi.pinMode(buzzer,"OUTPUT")
 
 sys.path.append(
@@ -40,16 +41,13 @@ if ll.setOpModeSleep(True,True):
 	ll.setFrequency(868)
 	ll.setTxPower(13)
 	
+	#If the server recieves the data from the node, send a confirmation message.
+	#If the distance is less than 6, set the lcd screen to red and activate the buzzer.
 	while True:
-		#ll.sendStr('Hello world!')
-		#ll.waitPacketSent()
-		
 		if ll.waitRX(timeout=3):
 			data=ll.recv()
 			header=data[0:4]
 			msg=data[4:]
-			#print('header: ',header)
-			#print('message:',array.array('B', msg).tostring())
 			ll.sendStr('Got your message!')
 			message = int(array.array('B', msg).tostring())
 			setText(str(message))
