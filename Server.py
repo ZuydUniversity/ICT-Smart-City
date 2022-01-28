@@ -1,16 +1,11 @@
-"""
-
-"""
-
 import sys
 import os
 import array
 from grove_rgb_lcd import *
 import grovepi
 
-buzzer = 8
-#Set pinmode.
-grovepi.pinMode(buzzer,"OUTPUT")
+buzzer = 8 #number of the port where the buzzer is connected too.
+grovepi.pinMode(buzzer,"OUTPUT") #set pinmode.
 
 sys.path.append(
 	os.path.join(

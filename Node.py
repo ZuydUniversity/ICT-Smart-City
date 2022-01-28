@@ -1,15 +1,11 @@
-"""
-    
-"""
-
 import sys
 import os
 import time
 import array
-import grovepi
+import grovepi 
 
 
-ultrasonic = 4
+ultrasonic = 4 #number of the port where the ultrasonic sensor is connected to.
 #Set the I2C bus. By default this is not needed. In this case this is done to fix an error.
 grovepi.set_bus("RPI_1")
 
@@ -44,7 +40,7 @@ if ll.setOpModeSleep(True,True):
 	
 	#Send data from the Ultrasonice Distance sensor to the server and receive a message when the data has been succesfully received.
 	while True:
-		ll.sendStr(str(grovepi.ultrasonicRead(ultrasonic)))
+		ll.sendStr(str(grovepi.ultrasonicRead(ultrasonic))) 
 		ll.waitPacketSent()
 		
 		if ll.waitRX(timeout=3):
