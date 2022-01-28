@@ -5,9 +5,7 @@ import array
 import grovepi 
 
 
-ultrasonic = 4 #number of the port where the ultrasonic sensor is connected to.
-#Set the I2C bus. By default this is not needed. In this case this is done to fix an error.
-grovepi.set_bus("RPI_1")
+ultrasonic = 4 #number of the port where the ultrasonic sensor is connected to.	
 
 sys.path.append(
 	os.path.join(
