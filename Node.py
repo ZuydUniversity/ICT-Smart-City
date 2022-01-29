@@ -38,7 +38,7 @@ if ll.setOpModeSleep(True,True):
 	
 	#Send data from the Ultrasonice Distance sensor to the server and receive a message when the data has been succesfully received.
 	while True:
-		ll.sendStr(str(grovepi.ultrasonicRead(ultrasonic))) 
+		ll.sendStr(str(grovepi.ultrasonicRead(ultrasonic))) #ultrasonicRead is a function used for reading ultrasonic sensor
 		ll.waitPacketSent()
 		
 		if ll.waitRX(timeout=3):
